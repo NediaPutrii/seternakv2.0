@@ -11,6 +11,9 @@ $username = $_SESSION['username'];
 
 $query=pg_query("SELECT * FROM produk WHERE id_produk='$id_produk'");
 $pecah=pg_fetch_assoc($query);
+
+			
+
 ?>
 
 <!doctype html>
@@ -96,7 +99,31 @@ $pecah=pg_fetch_assoc($query);
 
                     <div class="mb-3 pe-5 ps-5">
                     <label for="nama_produk" class="form-label">Nama Produk</label>
-                    <input type="text" class="form-control" id="nama_produk" name="nama_produk" value="<?php echo $pecah['nama_produk'] ?>"   >
+                     
+                    
+                    <select class="form-select" aria-label="Default select example" id="nama_produk" name="nama_produk" required>
+                    <?php
+                    $produk=$pecah['nama_produk'];
+                    $validate = 'Ganti nama produk dengan Telur Ayam atau Daging Ayam !';
+                        if($produk=="Daging ayam"){
+                          echo'<option selected value="Daging ayam">Daging ayam</option>';
+                          echo'<option value="Telur ayam">Telur ayam</option>';
+                          echo'</select>';
+                        }else if($produk=="Telur ayam"){
+                          echo'<option selected value="Telur ayam">Telur ayam</option>';
+                          echo'<option value="Daging ayam">Daging ayam</option>';
+                          echo'</select>';
+                        }else{
+                          echo'<option selected value="">' . $produk .'</option>';
+                          echo'<option value="Daging ayam">Daging ayam</option>';
+                          echo'<option value="Telur ayam">Telur ayam</option>';
+                          ?>
+                        
+                        </select>
+                        <small class="text-danger"><?= $validate; ?></small>
+                        <?php
+                        }
+                        ?>
                     </div>
 
                     <div class="mb-3 pe-5 ps-5">

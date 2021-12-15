@@ -376,7 +376,7 @@ if($cek > 0){
 
                     <div class="mb-3 col-lg-6 col-xs-12 me-2 input-wrapper ">
                       <label for="nama_usaha" class="form-label">Nama Usaha</label>
-                      <input type="text" class="form-control" id="nama_usaha" name="nama_usaha" value="<?php echo $user_data['nama_usaha']; ?>" disabled>
+                      <input type="text" class="form-control" id="nama_usaha" name="nama_usaha" placeholder="lengkapi nama usaha" value="<?php echo $user_data['nama_usaha']; ?>" disabled>
                     </div>
 
 
@@ -387,7 +387,7 @@ if($cek > 0){
 
                 <div class="mb-3 col-lg-12 ps-5 pe-3 col-md-12 input-wrapper form-container">
                   <label for="alamat_usaha" class="form-label">Alamat Usaha</label>
-                  <textarea class="form-control" id="alamat_usaha" name="alamat_usaha" rows="3" disabled><?php echo $user_data['alamat_usaha']; ?></textarea>
+                  <textarea class="form-control" id="alamat_usaha" name="alamat_usaha" rows="3" placeholder="lengkapi alamat usaha" disabled><?php echo $user_data['alamat_usaha']; ?></textarea>
                 </div>
 
              

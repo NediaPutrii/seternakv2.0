@@ -133,11 +133,11 @@ if (isset($_POST['submit']) and !empty($_POST['submit'])){
         <form class="row g-3" method="post">
             <div class="col-sm-6">
                 <label for="exampleFormControlInput1" class=" col-form-label col-form-label-sm">Name</label>
-                <input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="name" name="name" required>
+                <input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="masukkan nama" name="name" required>
             </div>
             <div class="col-sm-6">
                 <label for="exampleFormControlInput1" class=" col-form-label col-form-label-sm">Username</label>
-                <input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="username" name="username" require>
+                <input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="masukkan username" name="username" require>
             </div>
             <div class="col-12">
                 <label for="exampleFormControlInput1" class=" col-form-label col-form-label-sm">Email address</label>
@@ -156,15 +156,15 @@ if (isset($_POST['submit']) and !empty($_POST['submit'])){
             </div>
             <div class="col-md-6">
                 <label for="exampleFormControlInput1" class=" col-form-label col-form-label-sm">No. Telp</label>
-                <input type="number" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="08XXXXXXX" name="contact" require>
+                <input type="number" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="Masukkan No.Telp" name="contact" onkeypress="return hanyaAngka(event)" require>
             </div>
             <div class="col-md-6">
                 <label for="exampleFormControlInput1" class="2 col-form-label col-form-label-sm">City</label>
-                <input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="Kota Payakumbuh" name="kota" require>
+                <input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="Masukkan kota asal" name="kota" require>
             </div>
             <div class="col-md-12">
                 <label for="exampleFormControlTextarea1" class=" col-form-label col-form-label-sm">Address</label>
-                <textarea class="form-control form-control-sm" id="exampleFormControlTextarea1" rows="3" name="alamat" require></textarea>
+                <textarea class="form-control form-control-sm" id="exampleFormControlTextarea1" rows="3" name="alamat" placeholder="Masukkan alamat asal" require></textarea>
             </div>
      
             <div class="col-md-6">
@@ -200,5 +200,16 @@ if (isset($_POST['submit']) and !empty($_POST['submit'])){
   </div>
   </div>
 </div>
+
+
+<script>
+        function hanyaAngka(event) {
+            var angka = (event.which) ? event.which : event.keyCode
+            if (angka != 46 && angka > 31 && (angka < 48 || angka > 57))
+                return false;
+            return true;
+        }
+    </script>
+
 </body>
 </html>

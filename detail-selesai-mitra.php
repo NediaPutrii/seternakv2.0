@@ -239,7 +239,7 @@
                 </div>
             <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Komentar</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="feedback" id="feedback"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="feedback" id="feedback" placeholder="masukkan komentar"></textarea>
             </div>
             <button type="submit" class="btn btn-success" name="submit" id="submit" value="submit">Submit</button>
             </form>

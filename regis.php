@@ -68,6 +68,7 @@ if (isset($_POST['submit']) and !empty($_POST['submit'])){
     }
 }
 
+
 	?>
 
 <!DOCTYPE html>
@@ -80,6 +81,8 @@ if (isset($_POST['submit']) and !empty($_POST['submit'])){
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+
 
     <title>Daftar Seternak</title>
     <style>
@@ -95,7 +98,7 @@ if (isset($_POST['submit']) and !empty($_POST['submit'])){
             margin-top: 10%;;
            
         }
-       
+     
     </style>
 </head>
 <body>
@@ -167,18 +170,28 @@ if (isset($_POST['submit']) and !empty($_POST['submit'])){
                 <textarea class="form-control form-control-sm" id="exampleFormControlTextarea1" rows="3" name="alamat" require></textarea>
             </div>
      
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <label for="exampleFormControlInput1" class=" col-form-label col-form-label-sm">Password</label>
-                <input type="password" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="password" name="password" require>
+                <div class="d-flex bd-highlight">
+                    <input type="password" class="form-control form-control-sm" id="InputPassword" placeholder="password" name="password" pattern=".{8,12}" required title="8 to 12 characters" require>
+                    <span id=showPassword data-toggle="tooltip" class="btn btn-success" title="Lihat Password"><i id="icon" class="bi bi-eye pt-2 text-light"></i></span>
+                </div>
                 <?php if($validate != '') {?>
-                    <p class="text-danger"><?= $validate; ?></p>
+                    <small class="text-danger"><?= $validate; ?></small>
                 <?php }?>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
+                <small><div id="passwordDescription"></div></small>
+                <progress max="100" value="0" id="strength" style="width: 100%"></progress>
+            </div>
+            <div class="col-md-12">
                 <label for="exampleFormControlInput1" class=" col-form-label col-form-label-sm">Confirm Password</label>
-                <input type="password" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="password" name="repassword" require>
+                <div class="d-flex bd-highlight">
+                <input type="password" class="form-control form-control-sm" id="ConfirmPassword" placeholder="password" name="repassword" require>
+                <span id=showPassword1 data-toggle="tooltip" class="btn btn-success" title="Lihat Password"><i id="icon1" class="bi bi-eye pt-2 text-light"></i></span>
+                </div>
                 <?php if($validate != '') {?>
-                    <p class="text-danger"><?= $validate; ?></p>
+                    <small class="text-danger"><?= $validate; ?></small>
                 <?php }?>
             </div>
             <div class="col-12">
@@ -202,3 +215,95 @@ if (isset($_POST['submit']) and !empty($_POST['submit'])){
 </div>
 </body>
 </html>
+
+
+<script>
+    var showPassword = document.getElementById('showPassword')
+    var password = document.getElementById('InputPassword')
+    var icon = document.querySelector('#showPassword i')
+    
+    showPassword.addEventListener('click', function(e) {
+      if (password.type === 'password') {
+        password.setAttribute('type', 'text')
+        icon.classList.remove('bi bi-eye-slash')
+        icon.classList.add('bi bi-eye')
+      } else {
+        password.setAttribute('type', 'password')
+        icon.classList.remove('bi bi-eye')
+
+        icon.classList.add('bi bi-eye-slash')
+
+      }
+
+    })
+
+    var showPassword1 = document.getElementById('showPassword1')
+    var confirmpassword = document.getElementById('ConfirmPassword')
+    var icon = document.querySelector('#showPassword1 i')
+
+    showPassword1.addEventListener('click', function(e) {
+      if (confirmpassword.type === 'password') {
+        confirmpassword.setAttribute('type', 'text')
+        icon.classList.remove('bi bi-eye-slash')
+        icon.classList.add('bi bi-eye')
+      } else {
+        confirmpassword.setAttribute('type', 'password')
+        icon.classList.remove('bi bi-eye')
+
+        icon.classList.add('bi bi-eye-slash')
+
+      }
+
+    })
+
+  	var pass = document.getElementById("InputPassword")
+  	pass.addEventListener('keyup', function(){
+  		checkPassword(pass.value)
+  	})
+
+  	function checkPassword(InputPassword){
+  		var strengthBar = document.getElementById("strength");
+        var deskripsi = document.getElementById("passwordDescription");
+        var desc = new Array();
+        desc[0] = "Sangat Lemah";
+        desc[1] = "Lemah";
+        desc[2] = "Lebih Baik";
+        desc[3] = "Medium";
+        desc[4] = "Kuat";
+        desc[5] = "Terkuat";
+
+        var score = 0;
+        if (InputPassword.length > 6) score++;
+        
+        //if password has both lower and uppercase characters give 1 point 
+        if ( ( InputPassword.match(/[a-z]/) ) && ( InputPassword.match(/[A-Z]/) ) ) score++;
+        if (InputPassword.match(/\d+/)) score++;
+        if (InputPassword.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/) ) score++;
+        if (InputPassword.length > 12) score++;
+          document.getElementById("passwordDescription").innerHTML = desc[score];
+
+  		switch(score){
+  			//  akan menampilkan status progress bars sesuai Jika input sesuai karakter seperti dalam tanda bracket
+  			case 0:
+  					strengthBar.value = 0;
+  					break
+            case 1:
+                    strengthBar.value = 10;
+                    break
+  			case 2:
+  					strengthBar.value = 30;
+  					break
+  			case 3:
+  					strengthBar.value = 50;
+  					break
+  			case 4:
+  					strengthBar.value = 70;
+  					break
+  			case 5:
+  					strengthBar.value = 100;
+  					break
+  		}
+          
+  	}
+
+  </script>

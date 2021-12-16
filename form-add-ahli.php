@@ -86,27 +86,27 @@ $username = $_SESSION['username'];
 
                 <div class="mb-3 pe-5 ps-5">
                   <label for="nama_ahli" class="form-label">Nama</label>
-                  <input type="text" class="form-control" id="nama_ahli" name="nama_ahli" placeholder="">
+                  <input type="text" class="form-control" id="nama_ahli" name="nama_ahli" placeholder="masukkan nama ahli">
                 </div>
 
                 <div class="mb-3 pe-5 ps-5">
                   <label for="nip" class="form-label">NIP</label>
-                  <input type="text" class="form-control" id="nip" name="nip" placeholder="">
+                  <input type="text" class="form-control" id="nip" name="nip" placeholder="masukkan NIP" onkeypress="return hanyaAngka(event)">
                 </div>
 
                 <div class="mb-3 pe-5 ps-5">
                   <label for="jabatan" class="form-label">Jabatan</label>
-                  <input type="text" class="form-control" id="jabatan" name="jabatan" placeholder="">
+                  <input type="text" class="form-control" id="jabatan" name="jabatan" placeholder="masukkan jabatan ahli">
                 </div>
 
                 <div class="mb-3 pe-5 ps-5">
                   <label for="contact" class="form-label">Contact</label>
-                  <input type="text" class="form-control" id="contact" name="contact" placeholder="">
+                  <input type="text" class="form-control" id="contact" name="contact" placeholder="masukkan no.telp ahli" onkeypress="return hanyaAngka(event)">
                 </div>
 
                 <div class="mb-3 pe-5 ps-5">
                   <label for="jam_available" class="form-label">Jam Available</label>
-                  <input type="text" class="form-control" id="jam_available" name="jam_available" placeholder="">
+                  <input type="text" class="form-control" id="jam_available" name="jam_available" placeholder="masukkan jam available ex: 08.00 - 12.00 WIB">
                 </div>
 
 
@@ -124,13 +124,14 @@ $username = $_SESSION['username'];
 
                 <div class="mb-3 pe-5 ps-5">
                   <label for="deskripsi_ahli" class="form-label">Deskripsi Ahli</label>
-                  <textarea class="form-control" id="deskripsi_ahli" name="deskripsi_ahli" rows="3"></textarea>
+                  <p class="text-black-50">*Maksimal 150 karakter </p>
+                  <textarea class="form-control" id="deskripsi_ahli" name="deskripsi_ahli" maxlength="150" placeholder="masukkan deskripsi ahli" rows="3"></textarea>
                 </div>
 
 
                 <div class="mb-3 pe-5 ps-5">
                   <label for="profil_singkat" class="form-label">Profil Singkat</label>
-                  <textarea class="form-control" id="profil_singkat" name="profil_singkat" rows="3"></textarea>
+                  <textarea class="form-control" id="profil_singkat" name="profil_singkat" placeholder="masukkan profil singkat ahli" rows="3"></textarea>
                 </div>
 
 
@@ -172,6 +173,16 @@ $username = $_SESSION['username'];
 
   <!-- owl cousel min.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+        function hanyaAngka(event) {
+            var angka = (event.which) ? event.which : event.keyCode
+            if (angka != 46 && angka > 31 && (angka < 48 || angka > 57))
+                return false;
+            return true;
+        }
+    </script>
+
 </body>
 
 </html>

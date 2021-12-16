@@ -332,7 +332,7 @@
 
                       <div class="mb-3 col-lg-6 col-xs-12 me-4 input-wrapper" style="flex: 1;">
                         <label for="contact" class="form-label">No Telepon</label>
-                        <input type="text" class="form-control" id="contact" name="contact" value="<?php echo $user_data['contact']; ?>">
+                        <input type="text" class="form-control" id="contact" name="contact" onkeypress="return hanyaAngka(event)" value="<?php echo $user_data['contact']; ?>">
                       </div>
 
 
@@ -460,6 +460,15 @@
 
     })
   </script>
+
+<script>
+        function hanyaAngka(event) {
+            var angka = (event.which) ? event.which : event.keyCode
+            if (angka != 46 && angka > 31 && (angka < 48 || angka > 57))
+                return false;
+            return true;
+        }
+    </script>
 </body>
 
 </html>

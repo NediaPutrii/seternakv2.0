@@ -114,12 +114,12 @@ $username = $_SESSION['username'];
 
                 <div class="mb-3 pe-5 ps-5">
                   <label for="pertanyaan" class="form-label">Pertanyaan</label>
-                  <input type="text" class="form-control" id="pertanyaan" name="pertanyaan" placeholder="">
+                  <input type="text" class="form-control" id="pertanyaan" name="pertanyaan" placeholder="masukkan pertanyaan seputar ahli">
                 </div>
 
                 <div class="mb-3 pe-5 ps-5">
                   <label for="jawaban" class="form-label">jawaban</label>
-                  <textarea class="form-control" id="jawaban" name="jawaban" rows="3"></textarea>
+                  <textarea class="form-control" id="jawaban" name="jawaban" placeholder="masukkan jawaban" rows="3"></textarea>
                 </div>
 
                 <div class="field " style="display: flex; justify-content: flex-start; ">

@@ -129,13 +129,13 @@ $username = $_SESSION['username'];
 
                 <div class="mb-3 pe-5 ps-5">
                   <label for="deskripsi_ahli" class="form-label">Deskripsi Ahli</label>
-                  <textarea class="form-control" id="deskripsi_ahli" name="deskripsi_ahli" rows="3" disabled><?php echo $user_data['deskripsi_ahli']; ?></textarea>
+                  <textarea class="form-control" id="deskripsi_ahli" name="deskripsi_ahli" rows="5" disabled><?php echo $user_data['deskripsi_ahli']; ?></textarea>
                 </div>
              
 
               <div class="mb-3 pe-5 ps-5" style="padding-right: 10px;">
                 <label for="profil_singkat" class="form-label">Profil Singkat</label>
-                <textarea class="form-control" id="profil_singkat" name="profil_singkat" rows="3" disabled><?php echo $user_data['profil_singkat']; ?></textarea>
+                <textarea class="form-control" id="profil_singkat" name="profil_singkat" rows="5" disabled><?php echo $user_data['profil_singkat']; ?></textarea>
               </div>
 
               

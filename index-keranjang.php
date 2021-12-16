@@ -314,7 +314,7 @@ $keranjangcek = pg_fetch_assoc($cekkeranjang);
                               <td id="harga-<?php echo $user_data['id_keranjang']; ?>" class="font-p"><?php echo $user_data['harga']; ?></td>
                               <td class="font-p d-flex justify-content-center">
                                 <span class="minus" id="minus-<?php echo $user_data['id_keranjang']; ?>" dataid="<?php echo $user_data['id_keranjang']; ?>" onclick="minus(this)">-</span>
-                                <input id="stock-<?php echo $user_data['id_keranjang']; ?>" class="stok" type="text" name="kuantitas[]" value="<?php echo $user_data['jumlah']; ?>" onchange="handleChangeStock(this)" required />
+                                <input id="stock-<?php echo $user_data['id_keranjang']; ?>" class="stok" type="text" name="kuantitas[]" onkeypress="return hanyaAngka(event)" value="<?php echo $user_data['jumlah']; ?>" onchange="handleChangeStock(this)" required />
                                 <span class="plus" id="plus-<?php echo $user_data['id_keranjang']; ?>" onclick="plus(this,this.id)">+</span></td>
                               <td id="total-<?php echo $user_data['id_keranjang']; ?>" class="font-p">
                                   <?php 
@@ -459,6 +459,17 @@ $keranjangcek = pg_fetch_assoc($cekkeranjang);
 
     }
   </script>
+
+<script>
+        function hanyaAngka(event) {
+            var angka = (event.which) ? event.which : event.keyCode
+            if (angka != 46 && angka > 31 && (angka < 48 || angka > 57))
+                return false;
+            return true;
+        }
+    </script>
+
+    
   <script>
     // $(document).ready(function() {
     //   $('.minus').click(function() {

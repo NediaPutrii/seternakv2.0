@@ -6,6 +6,8 @@ if ($_SESSION['role'] != "2") {
   header("location:login.php?pesan=gagal");
 }
 $username = $_SESSION['username'];
+$sql = pg_query($conn,"SELECT * FROM update_harga ORDER BY tanggal asc limit 1");
+$limit = pg_fetch_assoc($sql);
 
 
 function generateRandomString($length = 10)
@@ -121,7 +123,12 @@ function generateRandomString($length = 10)
               
                 <div class="mb-3 pe-5 ps-5">
                   <label for="harga" class="form-label">Harga Produk</label>
-                  <input type="number" class="form-control" id="harga" name="harga" placeholder="masukkan harga produk" onkeypress="return hanyaAngka(event)" required>
+                  <p class="text-black-50">*Harga Harian : <br>
+                    Telur Rp <?php echo number_format($limit['harga_telur'], '0', ',', '.'); ?> <br> 
+                    Daging Rp <?php echo number_format($limit['harga_daging'], '0', ',', '.'); ?>
+                   
+                   </p> 
+                  <input type="number" class="form-control" id="harga" name="harga" placeholder="Masukkan harga produk minimal sesuai harga harian" onkeypress="return hanyaAngka(event)" required>
                 </div>
 
                 <div class="mb-3 pe-5 ps-5" type="hidden">

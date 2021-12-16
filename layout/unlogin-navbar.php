@@ -1,5 +1,10 @@
 
 <!-- Navbar -->
+<?php 
+session_start();
+if(isset($_SESSION['role'])){
+    echo $_SESSION['role'];}
+?>
 <nav class="navbar navbar-expand-lg navbar-dark hijau shadow fixed-top">
     <div class="container">
         <a class="navbar-brand" href="index.php#home">
@@ -14,10 +19,27 @@
             <a class="mx-4 nav-link  text-light" href="index.php#tahukahkamu">Tahukah Kamu</a>
             <a class="mx-4 nav-link text-light" href="tentangkami.php">Tentang Kami</a>
         </div>
+        <?php
+            if (!isset($_SESSION['role'])) {
+            ?>
+        
             <div class="ms-auto">
                 <a href="regis.php" class="btn btn-light mx-1 text-success shadow px-4">Daftar</a>
                 <a href="login.php" class="btn btn-success mx-1 hijau shadow px-4">Masuk</a>
             </div>
+        <?php }else{ 
+                    
+                    $link= "index-ahli.php";
+
+                    if ($_SESSION['role']=="2"){
+                        $link = "index-produksaya.php";
+                    }if ($_SESSION['role']=="1"){
+                        $link= "index-pasar.php";
+                    }
+
+            ?>
+            <a class="mx-4 ms-auto nav-link text-light" href="<?php echo $link; ?>">Home</a>
+        <?php } ?>   
         </div>
     </div>
 </nav>

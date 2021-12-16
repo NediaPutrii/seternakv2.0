@@ -78,7 +78,7 @@ $username = $_SESSION['username'];
                                         <tbody>
                                         <?php
                                             $i=0;
-                                            $ambil = pg_query($conn,"SELECT * FROM update_harga");
+                                            $ambil = pg_query($conn,"SELECT * FROM update_harga order by tanggal asc");
                                             while ($pecah = pg_fetch_array($ambil)){
                                         ?>
                                             <tr>

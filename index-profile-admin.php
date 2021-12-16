@@ -398,14 +398,13 @@ if($cek > 0){
                             <input type="hidden" name="username" id="" value="<?=$username;?>">
                             <div class="mb-3 pe-5 ps-5">
                               <label for="password_lama" class="form-label">Password Lama</label>
-                              <input type="text" class="form-control" id="password_lama" name="password_lama" placeholder="">
+                              <input type="text" class="form-control" id="password_lama" name="password_lama" placeholder="Password Lama" required>
                             </div>
 
                             <div class="mb-3 pe-5 ps-5">
                               <label for="password_baru" class="form-label">Password Baru</label>
-                              <input type="text" class="form-control" id="password_baru" name="password_baru" placeholder="">
-                            </div>
-                            
+                              <input type="text" class="form-control" id="password_baru" name="password_baru" placeholder="Password baru" pattern=".{8,12}" required title="8 to 12 characters" require>
+                            </div>                         
                             
                         </div>
                         
@@ -442,27 +441,7 @@ if($cek > 0){
   <!-- owl cousel min.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  <script>
-    var showPassword = document.getElementById('showPassword')
-    var password = document.getElementById('password')
-    var icon = document.querySelector('#showPassword i')
-
-
-    showPassword.addEventListener('click', function(e) {
-      if (password.type === 'password') {
-        password.setAttribute('type', 'text')
-        icon.classList.remove('bi bi-eye-slash')
-        icon.classList.add('bi bi-eye')
-      } else {
-        password.setAttribute('type', 'password')
-        icon.classList.remove('bi bi-eye')
-
-        icon.classList.add('bi bi-eye-slash')
-
-      }
-
-    })
-  </script>
+  
 </body>
 
 </html>

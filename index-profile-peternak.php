@@ -444,12 +444,12 @@ if($cek > 0){
                             <input type="hidden" name="username" id="" value="<?=$username;?>">
                             <div class="mb-3 pe-5 ps-5">
                               <label for="password_lama" class="form-label">Password Lama</label>
-                              <input type="text" class="form-control" id="password_lama" name="password_lama" placeholder="">
+                              <input type="text" class="form-control" id="password_lama" name="password_lama" placeholder="Password lama" required>
                             </div>
 
                             <div class="mb-3 pe-5 ps-5">
                               <label for="password_baru" class="form-label">Password Baru</label>
-                              <input type="text" class="form-control" id="password_baru" name="password_baru" placeholder="">
+                              <input type="text" class="form-control" id="password_baru" name="password_baru" placeholder="Password baru" pattern=".{8,12}" required title="8 to 12 characters" require>
                             </div>
                             
                             

@@ -79,10 +79,12 @@ $validate='';
                 <label for="exampleFormControlInput1" class="form-label">Password</label>
 
                 <div class="d-flex bd-highlight">
-                <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Password" name="password" required>
+                <input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
                 <span id=showPassword data-toggle="tooltip" class="btn btn-success" title="Lihat Password"><i id="icon" class="bi bi-eye pt-2 text-light"></i></span>
                 </div>
 
+              </div>
+              
               </div>
               <div class="d-grid gap-2">
                 <input type="submit" class="btn btn-success" name="submit" value="Masuk">
@@ -127,4 +129,6 @@ $validate='';
       }
 
     })
+
+    
   </script>

@@ -102,7 +102,12 @@ function generateRandomString($length = 10) {
 
                     <div class="mb-3 pe-5 ps-5">
                     <label for="nama_produk" class="form-label">Nama Produk</label>
-                    <input type="text" class="form-control" id="nama_produk" name="nama_produk" required >
+                    <!-- <input type="text" class="form-control" id="nama_produk" name="nama_produk" required > -->
+                    <select class="form-select" aria-label="Default select example" id="nama_produk" name="nama_produk" required>
+                      <option selected value="">Pilih produk</option>
+                      <option value="Daging ayam">Daging ayam</option>
+                      <option value="Telur ayam">Telur ayam</option>
+                    </select>
                     </div>
 
                     <div class="mb-3 pe-5 ps-5">

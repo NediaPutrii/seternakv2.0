@@ -16,7 +16,7 @@
             background-attachment: fixed;
             background-position: center center;
             background-repeat: no-repeat;
-            background-size:cover;
+            background-size:cover; 
         }
         #kartu{
             margin:50px auto;

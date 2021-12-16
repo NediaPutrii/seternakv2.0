@@ -103,16 +103,22 @@ function generateRandomString($length = 10)
             </div>
             <div class="card-body">
               <div class="row">
+
                 <div class="mb-3 pe-5 ps-5">
                   <label for="id_produk" class="form-label">ID Produk</label>
                   <input type="text" class="form-control" id="id_produk" name="id_produk" readonly value="<?php echo generateRandomString(8); ?>" required>
                 </div>
 
-                <div class="mb-3 pe-5 ps-5">
-                  <label for="nama_produk" class="form-label">Nama Produk</label>
-                  <input type="text" class="form-control" id="nama_produk" placeholder="masukkan nama produk" name="nama_produk" required>
-                </div>
-
+                 <div class="mb-3 pe-5 ps-5">
+                    <label for="nama_produk" class="form-label">Nama Produk</label>
+                    <!-- <input type="text" class="form-control" id="nama_produk" name="nama_produk" required > -->
+                    <select class="form-select" aria-label="Default select example" id="nama_produk" name="nama_produk" required>
+                      <option selected value="">Pilih produk</option>
+                      <option value="Daging ayam">Daging ayam</option>
+                      <option value="Telur ayam">Telur ayam</option>
+                    </select>
+                    </div>
+              
                 <div class="mb-3 pe-5 ps-5">
                   <label for="harga" class="form-label">Harga Produk</label>
                   <input type="number" class="form-control" id="harga" name="harga" placeholder="masukkan harga produk" onkeypress="return hanyaAngka(event)" required>
@@ -159,6 +165,7 @@ function generateRandomString($length = 10)
                   <p class="text-black-50">*Maksimal ukuran gambar : 10MB </p>
                   <input type="file" class="form-control" name="foto" id="foto" required>
                 </div>
+
               </div>
 
 

@@ -8,7 +8,7 @@ function randomPassword()
 {
 // function untuk membuat password random 6 digit karakter
  
-$digit = 6;
+$digit = 8;
 $karakter = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
  
 srand((double)microtime()*1000000);
@@ -34,40 +34,50 @@ $newPassword = randomPassword();
 // $newPasswordEnkrip = md5($pengacak . md5($newPassword) . $pengacak);
 $newPasswordEnkrip = password_hash($newPassword, PASSWORD_DEFAULT);
 // mencari alamat email si user
-$query = "SELECT * FROM public.user WHERE username = '$username'";
-$hasil = pg_query($query);
-$data  = pg_fetch_array($hasil);
-$alamatEmail = $data['email'];
- 
-// title atau subject email
-$title  = "Reset Password";
- 
-// isi pesan email disertai password
-$pesan  = "Username Anda : ".$username.". \nPassword Anda yang baru adalah ".$newPassword;
- 
-// header email berisi alamat pengirim
-$header = "From: seternak@gmail.com";
- 
-// mengirim email
-$kirimEmail = mail($alamatEmail, $title, $pesan, $header);
- 
-// cek status pengiriman email
-if ($kirimEmail) {
- 
-    // update password baru ke database (jika pengiriman email sukses)
-    $query = "UPDATE public.user SET password = '$newPasswordEnkrip' WHERE username = '$username'";
-    $hasil = pg_query($query);
-     
-    if ($hasil) {
-        echo '<script>'; 
-        echo 'alert("Cek email anda");'; 
-        echo 'window.location.href = "../login.php";';
-        echo '</script>';
-    }else {
-        echo '<script>'; 
-        echo 'alert("Gagal mengirimkan email");'; 
-        echo 'window.location.href = "../login.php";';
-        echo '</script>';
+
+$sql = pg_query($dbconn,"SELECT * FROM public.user WHERE username='$username'");
+$cek = pg_affected_rows($sql);
+
+if($cek>0){
+    $data  = pg_fetch_array($sql);
+    $alamatEmail = $data['email'];
+    
+    // title atau subject email
+    $title  = "Reset Password";
+    
+    // isi pesan email disertai password
+    $pesan  = "Halo Pengguna Seternak, \nPassword baru anda adalah ".$newPassword;
+    
+    // header email berisi alamat pengirim
+    $header = "From: seternak@gmail.com";
+    
+    // mengirim email
+    $kirimEmail = mail($alamatEmail, $title, $pesan, $header);
+    
+    // cek status pengiriman email
+    if ($kirimEmail) {
+    
+        // update password baru ke database (jika pengiriman email sukses)
+        $query = "UPDATE public.user SET password = '$newPasswordEnkrip' WHERE username = '$username'";
+        $hasil = pg_query($query);
+        
+        if ($hasil) {
+            echo '<script>'; 
+            echo 'alert("Cek email anda");'; 
+            echo 'window.location.href = "../login.php";';
+            echo '</script>';
+        }else {
+            echo '<script>'; 
+            echo 'alert("Gagal mengirimkan email");'; 
+            echo 'window.location.href = "../login.php";';
+            echo '</script>';
+        }
     }
+}else{
+    echo '<script>'; 
+    echo 'alert("Username yang anda masukkan tidak terdaftar");'; 
+    echo 'window.location.href = "../forgot_pass.php";';
+    echo '</script>';
 }
+
 ?>

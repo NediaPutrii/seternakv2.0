@@ -84,6 +84,8 @@ $validate='';
                 </div>
 
               </div>
+              
+              </div>
               <div class="d-grid gap-2">
                 <input type="submit" class="btn btn-success" name="submit" value="Masuk">
               </div>
@@ -127,4 +129,6 @@ $validate='';
       }
 
     })
+
+    
   </script>

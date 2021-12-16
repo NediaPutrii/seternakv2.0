@@ -13,6 +13,10 @@
     // $tanggal = date("d-m-Y");
     // var_dump ($waktu_produksi);
 
+    $sql = "SELECT * FROM update_harga ORDER BY tanggal desc limit 1";
+    $limit = pg_fetch_assoc($sql);
+
+
 
     $ekstensi_diperbolehkan	= array('png','jpg','jpeg');
     $foto = $_FILES['foto']['name'];

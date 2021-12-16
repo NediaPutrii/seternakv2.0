@@ -351,7 +351,7 @@
                     while ($pecah = pg_fetch_array($ambil)){
                 ?>
                 <div id="item" class="item ">
-                    <div class="card shadow-sm" style="width: 15rem;">
+                    <div class="card shadow-sm" style="width: 15rem; height:50vh">
                         <img src="assets/informasi/<?php echo $pecah['foto']; ?>" class="card-img-top" alt="..."  width="300px"  height="150px">
                         <div class="card-body">
                             <h5 class="card-title text-start font-hijau"><?php echo $pecah['judul_info']; ?></h5>

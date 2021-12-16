@@ -96,7 +96,7 @@ $username = $_SESSION['username'];
 
                   <div class="mb-3 pe-5 ps-5">
                     <label for="nip" class="form-label">NIP</label>
-                    <input type="text" class="form-control" id="nip" name="nip" value="<?php echo $user_data['nip']; ?>">
+                    <input type="text" class="form-control" id="nip" name="nip" onkeypress="return hanyaAngka(event)" value="<?php echo $user_data['nip']; ?>">
                   </div>
 
                   <div class="mb-3 pe-5 ps-5">
@@ -106,7 +106,7 @@ $username = $_SESSION['username'];
 
                   <div class="mb-3 pe-5 ps-5">
                     <label for="contact" class="form-label">Contact</label>
-                    <input type="text" class="form-control" id="contact" name="contact" value="<?php echo $user_data['contact']; ?>">
+                    <input type="text" class="form-control" id="contact" name="contact" onkeypress="return hanyaAngka(event)" value="<?php echo $user_data['contact']; ?>">
                   </div>
 
                   <div class="mb-3 pe-5 ps-5">
@@ -139,7 +139,8 @@ $username = $_SESSION['username'];
 
                   <div class="mb-3 pe-5 ps-5">
                     <label for="deskripsi_ahli" class="form-label">Deskripsi Ahli</label>
-                    <textarea class="form-control" id="deskripsi_ahli" name="deskripsi_ahli" rows="3"><?php echo $user_data['deskripsi_ahli']; ?></textarea>
+                    <p class="text-black-50">*Maksimal 150 karakter </p>
+                    <textarea class="form-control" id="deskripsi_ahli" name="deskripsi_ahli" maxlength="150" rows="3"><?php echo $user_data['deskripsi_ahli']; ?></textarea>
                   </div>
               
 
@@ -193,6 +194,15 @@ $username = $_SESSION['username'];
 
   <!-- owl cousel min.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+        function hanyaAngka(event) {
+            var angka = (event.which) ? event.which : event.keyCode
+            if (angka != 46 && angka > 31 && (angka < 48 || angka > 57))
+                return false;
+            return true;
+        }
+    </script>
+
 </body>
 
 </html>

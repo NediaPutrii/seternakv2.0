@@ -287,13 +287,13 @@
 
                       <div class="mb-3 col-lg-6 col-xs-12 me-4 input-wrapper" style="flex: 1;">
                         <label for="email" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="email" name="email" value="<?php echo $user_data['email']; ?>">
+                        <input type="text" class="form-control" id="email" placeholder="masukkan email" name="email" value="<?php echo $user_data['email']; ?>">
                       </div>
 
 
                       <div class="mb-3 col-lg-6 col-xs-12 me-2 input-wrapper ">
                         <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" value="<?php echo $user_data['username']; ?>">
+                        <input type="text" class="form-control" id="username" placeholder="masukkan username" name="username" value="<?php echo $user_data['username']; ?>">
                       </div>
 
 
@@ -304,7 +304,7 @@
              
                       <div class="class=mb-3 col-lg-6 ps-5 col-xs-12 input-wrapper form-container">
                         <label for="name" class="form-label">Nama</label>
-                        <input type="text" class="form-control" id="name" name="name" value="<?php echo $user_data['name']; ?>">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="masukkan nama" value="<?php echo $user_data['name']; ?>">
                       </div>
 
                       <input id="password" name="password" type="hidden" class="form-control p-2 flex-grow-1 bd-highlight" value="<?php echo $user_data['password']; ?>" >
@@ -326,13 +326,13 @@
 
                       <div class="mb-3 col-lg-6 col-xs-12 me-4 input-wrapper" style="flex: 1;">
                         <label for="contact" class="form-label">No Telepon</label>
-                        <input type="text" class="form-control" id="contact" name="contact" value="<?php echo $user_data['contact']; ?>">
+                        <input type="text" class="form-control" id="contact" placeholder="masukkan no.telp" name="contact" onkeypress="return hanyaAngka(event)" value="<?php echo $user_data['contact']; ?>">
                       </div>
 
 
                       <div class="mb-3 col-lg-6 col-xs-12 me-2 input-wrapper ">
                         <label for="kota" class="form-label">Kota</label>
-                        <input type="text" class="form-control" id="kota" name="kota" value="<?php echo $user_data['kota']; ?>">
+                        <input type="text" class="form-control" id="kota" name="kota" placeholder="masukkan kota asal" value="<?php echo $user_data['kota']; ?>">
                       </div>
 
 
@@ -344,7 +344,7 @@
 
                   <div class="mb-3 col-lg-12 ps-5 pe-3 col-md-12 input-wrapper form-container">
                     <label for="alamat" class="form-label">Alamat</label>
-                    <textarea class="form-control" id="alamat" name="alamat" rows="3"><?php echo $user_data['alamat']; ?></textarea>
+                    <textarea class="form-control" id="alamat" name="alamat" placeholder="masukkan alamat" rows="3"><?php echo $user_data['alamat']; ?></textarea>
                   </div>
              
 
@@ -364,7 +364,7 @@
 
                     <div class="mb-3 col-lg-6 col-xs-12 me-2 input-wrapper ">
                       <label for="nama_usaha" class="form-label">Nama Usaha</label>
-                      <input type="text" class="form-control" id="nama_usaha" name="nama_usaha" value="<?php echo $user_data['nama_usaha']; ?>">
+                      <input type="text" class="form-control" id="nama_usaha" name="nama_usaha" placeholder="masukkan nama usaha" value="<?php echo $user_data['nama_usaha']; ?>">
                     </div>
 
 
@@ -375,7 +375,7 @@
 
                 <div class="mb-3 col-lg-12 ps-5 pe-3 col-md-12 input-wrapper form-container">
                   <label for="alamat_usaha" class="form-label">Alamat Usaha</label>
-                  <textarea class="form-control" id="alamat_usaha" name="alamat_usaha" rows="3"><?php echo $user_data['alamat_usaha']; ?></textarea>
+                  <textarea class="form-control" id="alamat_usaha" name="alamat_usaha" placeholder="masukkan alamat usaha" rows="3"><?php echo $user_data['alamat_usaha']; ?></textarea>
                 </div>
 
               <div class="field " style="display: flex; justify-content: flex-start; ">
@@ -446,6 +446,15 @@
 
     })
   </script>
+
+<script>
+        function hanyaAngka(event) {
+            var angka = (event.which) ? event.which : event.keyCode
+            if (angka != 46 && angka > 31 && (angka < 48 || angka > 57))
+                return false;
+            return true;
+        }
+    </script>
 </body>
 
 </html>

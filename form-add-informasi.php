@@ -78,23 +78,23 @@ function generateRandomString($length = 10) {
 
                     <div class="mb-3 pe-5 ps-5">
                     <label for="judul_info" class="form-label">Judul Informasi</label>
-                    <input type="text" class="form-control" id="judul_info" name="judul_info" required >
+                    <input type="text" class="form-control" id="judul_info" name="judul_info" required placeholder="masukkan judul informasi" >
                     </div>
 
                     <div class="mb-3 pe-5 ps-5">
                     <label for="author" class="form-label">Author</label>
-                    <input type="text" class="form-control" id="author" name="author"  required>
+                    <input type="text" class="form-control" id="author" name="author" placeholder="masukkan penulis" required>
                     </div>
 
                     <div class="mb-3 pe-5 ps-5">
                     <label for="abstrak" class="form-label">Abstrak Informasi</label>
                     <p class="text-black-50">*Maksimal 150 karakter </p>
-                    <input type="text" class="form-control" id="abstrak" name="abstrak" maxlength="150" required >
+                    <input type="text" class="form-control" id="abstrak" name="abstrak" maxlength="150" placeholder="masukkan abstrak informasi" required >
                     </div>
 
                     <div class="mb-3 pe-5 ps-5">
                     <label for="deskripsi_info" class="form-label">Deskripsi Informasi</label>
-                    <textarea class="form-control" id="deskripsi_info" name="deskripsi_info" rows="20" required></textarea>
+                    <textarea class="form-control" id="deskripsi_info" name="deskripsi_info" rows="20" placeholder="masukkan deskripsi informasi lengkap" required></textarea>
                     </div>
 
                     <div class="mb-3 pe-5 ps-5">

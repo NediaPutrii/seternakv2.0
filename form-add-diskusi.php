@@ -71,17 +71,17 @@
 
                     <div class="mb-3 pe-5 ps-5">
                     <label for="nama_forum" class="form-label">Judul</label>
-                    <input type="text" class="form-control" id="nama_forum"name="nama_forum" placeholder="" required>
+                    <input type="text" class="form-control" id="nama_forum"name="nama_forum" placeholder="masukkan nama forum" required>
                     </div>
 
                     <div class="mb-3 pe-5 ps-5">
                     <label for="nip" class="form-label">Link WhatsApp</label>
-                    <input type="url" class="form-control" id="link" name="link" placeholder="" required>
+                    <input type="url" class="form-control" id="link" name="link" placeholder="masukkan link whatsapp forum" required>
                     </div>
 
                     <div class="mb-3 pe-5 ps-5">
                     <label for="deskripsi_forum" class="form-label">Deskripsi Forum</label>
-                    <textarea class="form-control" id="deskripsi_forum" name="deskripsi_forum" rows="3" required></textarea>
+                    <textarea class="form-control" id="deskripsi_forum" name="deskripsi_forum" rows="3" placeholder="masukkan deskripsi forum" required></textarea>
                     </div>
               </div>
 

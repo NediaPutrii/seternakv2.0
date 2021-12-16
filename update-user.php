@@ -89,7 +89,7 @@ $username = $_SESSION['username'];
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">No. Telp</label>
-                            <input type="number" class="form-control" name="contact" value= "<?=$user->contact?>"">
+                            <input type="number" class="form-control" name="contact" onkeypress="return hanyaAngka(event)" value= "<?=$user->contact?>"">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">City</label>
@@ -114,4 +114,14 @@ $username = $_SESSION['username'];
     <?php
     include('layout/admin-footer.php');
     ?>
+
+<script>
+        function hanyaAngka(event) {
+            var angka = (event.which) ? event.which : event.keyCode
+            if (angka != 46 && angka > 31 && (angka < 48 || angka > 57))
+                return false;
+            return true;
+        }
+    </script>
+  </body>
 </html>

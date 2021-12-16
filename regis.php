@@ -287,9 +287,9 @@ if (isset($_POST['submit']) and !empty($_POST['submit'])){
   			case 0:
   					strengthBar.value = 0;
   					break
-            case 1:
-                    strengthBar.value = 10;
-                    break
+        case 1:
+            strengthBar.value = 10;
+            break
   			case 2:
   					strengthBar.value = 30;
   					break
